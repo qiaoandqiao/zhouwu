@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search_in</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html,body,a,div,span,strong,ul,ol,li,p,input {
+            /* font-weight: inherit;
+            font-size: inherit; */
+            list-style: none;
+            border-spacing: 0;
+            border: 0;
+            border-collapse: collapse;
+            text-decoration: none;
+        }
+        body {
+            background-image: url(tree.jpg);
+            background-position: 25% 25%;
+        }
+        .box {
+            margin-left: 170.729px;
+            margin-right: 170.740px;
+            width: 1365.860px;
+            height: 624px;
+            /* background-color: pink; */
+        }
+        .header {
+            margin-right: 755.115px;
+            width: 465.750px;
+            height: 31.198px;
+            /* background-color: skyblue; */
+            /* float: left; */
+            display: inline-block;
+        }
+        .counter {
+            /* margin-left: 160px; */
+            display: inline-block;
+        }
+        /* .mg {
+            float: left;
+        }
+        .mg img {
+            width: 154px;
+        } */
+        .counter li {
+            float: left;
+        }
+        .counter li a,.focus{
+            display: block;
+            font-size: 14px;
+            color: #FFFFFFCC;
+            width: 40px;
+            height: 39px;
+            margin-right: 36px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .counter a:hover {
+            color: white;
+        }
+        .counter .focus:hover {
+            color: #fff;
+        }
+        .counter .extra {
+            width: 155px;
+            height: 243px;
+            background-color: #fff;
+            border-radius: 6px;
+            position: absolute;
+            top: 39px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            display: none;
+            box-shadow: 0 4px 12px 1px rgb(0 0 0 / 14%);
+            z-index: 1;
+        }
+        .counter .extra li {
+            display: block;
+            width: 135px;
+            height: 37px;
+            color: #666;
+            font-size: 14px;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .counter .extra a {
+            display: block;
+            color: #666;
+        }
+        .counter .focus:hover .extra{
+            display: block;
+        }
+        .counter .extra li:hover {
+            background-color: rgba(206, 194, 194, 0.3);
+            color: #010101;
+        }
+        .idkey {
+            width: 145px;
+            height: 31.198px;
+            /* background-color: green; */
+            float: right;
+        }
+        .idkey a {
+            display: inline-block;
+            font-size: 14px;
+            color: #FFFFFFCC;
+            /* width: 40px;
+            height: 39px; */
+            margin-right: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            float: left;
+        }
+        .idkey img {
+            width: 32px;
+            height: 32px;
+            float: left;
+            margin-top: 8px;
+        }
+        .search {
+            width: 596px;
+            height: 52px;
+            /* background-color: blue; */
+            margin-left: 228px;
+            position: relative;
+            top: 15%;
+            right: 30px;
+            box-sizing: border-box;
+        }
+        .switch {
+            width: 160px;
+            height: 37px;
+            /* background-color: #fff; */
+            position: absolute;
+            margin-top: -40px;
+            margin-left: 20px;
+            /* z-index: 2; */
+        }
+        .switch .common {
+            display: inline-block;
+            line-height: 26px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            padding: 6px 14px 5px 14px;
+            font-family: 'Microsoft YaHei',Arial, Helvetica, sans-serif;
+            margin-right: 4px;
+            width: 48px;
+            height: 26px;
+            background-color: #fff;
+            border-radius: 24px;
+            color: #010101;
+            cursor: auto;
+        }
+        .switch .one {
+            
+            float: left;
+            /* z-index: 1; */
+        }
+        .switch .two {
+            color: #666;
+            background-color: rgba(255,255,255,.75);
+            float: right;
+        }
+        .switch a {
+            color: #666;
+        }
+        .switch .two:hover {
+            background-color: rgba(255,255,255,.5);
+            cursor: pointer;
+            /* 切换国际版one和two交换即可 */
+        }
+        /* .sbox {
+            width: 586px;
+            height: 52px;
+            background-color: #fff;
+            padding-right: 10px;
+            border-radius: 24px;
+        } */
+        .sk {
+            width: 485.417px;
+            height: 21.333px;
+            background-color: #fff;
+            border-radius:24px;
+            border: 0;
+            padding: 12px 10px 12px 16px;
+            font-size: 16px;
+            /* margin-right: 10px; */
+        }
+        .submit {
+            cursor: pointer;
+            background-color: #4a68e0;
+            width: 64px;
+            height: 44px;
+            border: 0;
+            border-radius:24px;
+            color:#fff;
+            font-size: 16px;
+            display: none;
+        }
+        .sc {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            left: 465px;
+            top: 7px;
+        }
+        .explain {
+            height: 36px;
+            background-color: #333;
+            padding: 0 170px;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+        }
+        .explain ul li {
+            float: left;
+            margin-right: 50px;
+        }
+        .explain ul a {
+            color: #666;
+            font-size: 14px;
+            line-height: 36px;
+        }
+        .explain ul a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>   
+    <div class="box">
+        <div class="header">
+            <div class="counter">
+                <!-- <div class="mg"><img src="./logo.png" alt=""></div> -->
+                <ul>
+                    <li>
+                        <a href="https://cn.bing.com/images/trending?form=Z9LH">图片</a>
+                    </li>
+                    <li>
+                        <a href="https://cn.bing.com/videos/trending?form=Z9LH1">视频</a>
+                    </li>
+                    <li>
+                        <a href="https://cn.bing.com/search?q=Bing+translate&FORM=TTAHP1">翻译</a>
+                    </li>
+                    <li class="focus">
+                        ···
+                        <ul class="extra">
+                            <li><a href="#">学术</a></li>
+                            <li><a href="#">词典</a></li>
+                            <li><a href="#">地图</a></li>
+                            <li><a href="#">MSN</a></li>
+                            <li><a href="#">TakeLessons</a></li>
+                            <li><a href="#">Office</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="idkey">
+            <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&id=264960&wreply=https%3a%2f%2fcn.bing.com%2fsecure%2fPassport.aspx%3frequrl%3dhttps%253a%252f%252fcn.bing.com%252fchrome%252fnewtab%253fFORM%253dBEHPTB%2526wlexpsignin%253d1%26sig%3d22DF59A3702D6DD3066A4813714B6C0F&wp=MBI_SSL&lc=2052&CSRFToken=16f9a01d-8475-45c6-a9f6-17478cb14dbc&aadredir=1">登录</a>
+            <img src="./图片1.png">
+        </div>
+        <div class="search">
+            <form target="_blank" method="get" action="https://www.baidu.com/s" class="sbox">
+                <input type="text" placeholder="请输入搜索内容" name="word" class="sk">
+                <input type="submit" value="搜索" class="submit" id="submit">
+                <label for="submit"><img src="./搜索_search (2).svg" class="sc"></label>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
